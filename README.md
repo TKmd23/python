@@ -1,1 +1,2 @@
-# python
+for my studies... 
+i am testing myself
