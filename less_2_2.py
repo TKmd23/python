@@ -197,7 +197,7 @@ job_list = {
     }
 
 nick = Human(name="Nick")
-for day in range(1,50):
+for day in range(1, 365):
     if nick.live(day) == False:
         break
 

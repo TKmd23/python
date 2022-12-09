@@ -51,10 +51,10 @@ class Student():
         self.is_alive()
 
 adam = Student(name="Adam")
-
-for day in range(365):
-    if adam.alive == False:
-        break
-    adam.live(day)
+print(type(adam))
+# for day in range(365):
+#     if adam.alive == False:
+#         break
+#     adam.live(day)
 
 

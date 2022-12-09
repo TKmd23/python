@@ -116,3 +116,5 @@
 # print(len(nick))
 # print(bool(nick))
 
+txt = print('python')
+print(txt)
