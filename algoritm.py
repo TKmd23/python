@@ -1,70 +1,97 @@
 import random
 
-class Human():
-    def __init__(self, name="Human", job=None, home=None, car=None):
+class animal():
+
+    def __init__(self, name):
         self.name = name
-        self.money = 100
-        self.gladness = 50
-        self.satiety = 50
-        self.job = job
-        self.car = car
-        self.home = home
+        self.gladness = 10#random.randint(40, 60)
+        self.house_live = 100
+        self.eate = 15#random.randint(20, 30)
+        self.drinck = 50#random.randint(7, 22)
 
-    def get_home(self):
-        pass
+        self.alive = True
 
-    def get_car(self):
-        pass
+    def Walk(self):
+        print("Time to go for e wolk!")
+        self.house_live -= random.randint(1, 5)
+        self.gladness += random.randint(2, 5)
+        self.eate -= 5#random.randint(2, 4)
+        self.drinck -= 4#random.randint(2, 6)
 
-    def get_job(self):
-        pass
-
-    def eat(self):
-        pass
-
-    def work(self):
-        pass
-
-    def shopping(self):
-        pass
+    def sleep(self):
+        print("take some dreams")
+        self.gladness += 2#random.randint(2, 8)
+        self.eate -= 2#random.randint(0, 3)
+        self.house_live += 1
+        self.drinck -= 2#random.randint(1, 3)
 
     def chill(self):
-        pass
+        print("Rest time!")
+        self.gladness += 2#random.randint(3, 10)
+        self.eate += 2#random.randint(0, 3),
+        self.house_live += 2#random.randint(0, 3)
+        self.drinck += 2#random.randint(0, 4)
 
-    def clean_home(self):
-        pass
+    def eating(self):
+        print("Now you are eating")
+        self.gladness += random.randint(1, 6)
+        self.eate += random.randint(4, 11)
+        self.house_live += 1
+        self.drinck += random.randint(2, 5)
 
-    def repair_car(self):
-        pass
+    def drin(self):
+        self.gladness += random.randint(1, 3)
+        self.eate += random.randint(0, 3)
+        self.house_live += 1
+        self.drinck += random.randint(11, 21)
 
-    def days_index(self, day):
-        pass
+    def bed_outsite_raine(self):
+        self.gladness -= random.randint(10, 20)
+        self.house_live += random.randint(1, 3)
+    print("Its tha rain and you sit at home.")
 
     def is_alive(self):
-        pass
+        if self.house_live <= -1:
+            print("You hawe not a house, (_Game Over!_) ")
+            self.alive = False
+        elif self.gladness <= 0:
+            print("Depression........")
+            self.alive = False
+        elif self.eate <= 0:
+            print("You are die! :(")
+            self.alive = False
+        elif self.drinck <= 0:
+            print("You die because you want drenck!")
+            self.alive = False
+
+    def day_end(self):
+        print(f"Gladness = {round(self.gladness)}")
+        print(f"Life = {round(self.house_live, 2)}")
+        print(f"Eate = {round(self.eate, 2)}")
+        print(f"Water = {round(self.drinck, 2)}")
 
     def live(self, day):
-        pass
+        day = "Day " + str(day) + " of " + self.name + " life"
+        print(f"{day:=^50}")
+        live_cube = random.randint(1, 6)
+        if live_cube == 1:
+            self.Walk()
+        elif live_cube == 2:
+            self.sleep()
+        elif live_cube == 3:
+            self.chill()
+        elif live_cube == 4:
+            self.eating()
+        elif live_cube == 5:
+            self.drin()
+        elif live_cube == 6:
+            self.bed()
+        self.day_end()
+        self.is_alive()
 
-class Auto():
-    def __init__(self, brand_list):
-        self.brand = random.choice(list(brand_list))
-        self.fuel = brand_list[self.brand]["fuel"]
-        self.strength = brand_list[self.brand]["strength"]
-        self.consumption = brand_list[self.brand]["consumption"]
+adam = animal(name="Tom")
 
-    def drive(self):
-        if self.strength > 0 and self.fuel >= self.consumption:
-            self.strength -= 1
-            self.fuel -= self.consumption
-            return True
-        else:
-            print("The car cannot move")
-            return False
-
-    brand_list = {
-        "BMW":{"fuel":100, "strength":100, "consumption":6},
-        "Lada":{"fuel":50, "strength":40, "consumption":10},
-        "Volvo":{"fuel":70, "strength":150, "consumption":8},
-        "Ferrari":{"fuel":80, "strength":120, "consumption":14},
-    }
+for day in range(366):
+    if adam.alive == False:
+        break
+    adam.live(day)
