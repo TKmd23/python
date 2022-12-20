@@ -1,10 +1,9 @@
-x= int(input())
-mini, maxi = 9,0
-while x:
-    s = x%10
-    if s > maxi:
-        maxi = s
-    if s < mini:
-        mini = s
-    x=x//10
-print(mini, maxi, sep="\n")
+x = int(input())
+n = x
+list = []
+while n > 1:
+    if x%n == 0:
+        list.append(n)
+
+    n -= 1
+print(min(list))    
