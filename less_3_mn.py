@@ -13,7 +13,7 @@
 # iphone.calculate()
 # iphone.display()
 
-#----------------------
+# ----------------------
 
 class Computer:
     def __init__(self, model, *args, **kwargs):
@@ -21,10 +21,12 @@ class Computer:
         self.memory = 128
         self.model = model
 
+
 class Display:
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)
         self.resolution = "4k"
+
 
 class SmartPhone(Display, Computer):
     def print_info(self):
@@ -35,4 +37,3 @@ class SmartPhone(Display, Computer):
 
 iphone = SmartPhone(model="Last")
 iphone.print_info()
-
