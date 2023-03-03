@@ -1,5 +1,5 @@
 def func(x, y):
-    '''
+    """
     Return some action
 
     :param x: First
@@ -7,9 +7,9 @@ def func(x, y):
     :param y: Second
     :type y: int
     :return: Return type int
-    '''
+    """
 
     return x + y
 
 
-func()
+func(2, 5)
