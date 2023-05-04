@@ -1,11 +1,26 @@
-import pandas as pd
-import json
+n, m = map(int, input().split())
+matrix = [input() for i in range(n)]
+test = [[False]*m for i in range(n)]
 
-with open('cd_ua_2023-01-json') as f:
-    data = json.load(f)
+for i in range(n):
+    if "S" not in matrix[i]:
+        for j in range(m):
+            test[i][j] = True
 
-df = pd.DataFrame.from_dict(data)
+for j in range(m):
+    flag = False
+    for i in range(n):
+        if matrix[i][j] == "S":
+            flag = True
+            break
+    if not flag:
+        for i in range(n):
+            test[i][j] = True
 
 
-df.to_excel('file.xlsx', index=False)
-
+count = 0
+for i in range(n):
+    for y in range(m):
+        if test[i][y]:
+            count+=1
+print(count)
