@@ -1,0 +1,9 @@
+1. step - pip install PyInstaller
+2. Go to directory, where my program is
+3. pyinstaller (name_of_file.py) block.py (default values and setups)
+3.1 pyinstaller -F block.py  (1 file pack)
+3.2 pyinstaller -F -w block.py  (noconsole)
+3.3 pyinstaller -F -w -i "logo.ico" block.py   (icon)
+
+
+4. pyinstaller --onefile --noconsole block.py
